@@ -1,15 +1,13 @@
 pipeline {
     agent any
+    environment {
+    SSH = credentials("common/ssh")
+    }
 
     stages {
         stage('one') {
             steps {
-                echo 'Hi, there'
-            }
-        }
-        stage('two') {
-            steps {
-                echo 'Hi, there'
+                sh 'echo ${SSH1} | base64'
             }
         }
     }
