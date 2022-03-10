@@ -47,6 +47,7 @@ pipeline {
     stage('one') {
       steps {
         sh 'echo ${SSH1} | base64'
+        echo hi
       }
     }
   }
