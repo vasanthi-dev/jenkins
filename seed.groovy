@@ -36,3 +36,18 @@ pipelineJob('roboshop-ansible') {
 //    archiveArtifacts('job-dsl-plugin/build/libs/job-dsl.hpi')
 //  }
 //}
+
+pipeline {
+  agent any
+  environment {
+    SSH = credentials("common/ssh")
+  }
+
+  stages {
+    stage('one') {
+      steps {
+        sh 'echo ${SSH1} | base64'
+      }
+    }
+  }
+}
