@@ -1,7 +1,7 @@
 def call(){
     pipeline {
         agent {
-            label '${BUILD_LABEL}'
+            label "${BUILD_LABEL}"
         }
         triggers {
             pollSCM('*/2 * * * *')
