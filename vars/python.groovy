@@ -8,7 +8,7 @@ def call(){
 //        }
         stages {
             stage('Check the Code Quality') {
-                steps {
+                script {
                     sh 'echo Check the Code Quality'
                 }
             }
