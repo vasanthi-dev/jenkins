@@ -3,9 +3,9 @@ def call(){
         agent {
             label "${BUILD_LABEL}"
         }
-        triggers {
-            pollSCM('*/2 * * * *')
-        }
+//        triggers {
+//            pollSCM('*/2 * * * *')
+//        }
         stages {
             stage('Check the Code Quality') {
                 steps {
