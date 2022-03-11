@@ -12,10 +12,20 @@ def call(){
                     sh 'echo Check the Code Quality'
                 }
             }
+            stage('Lint Checks') {
+                steps {
+                    sh 'echo Lint Checks'
+                }
+            }
             stage('Test Cases') {
                 steps {
                     sh 'echo Test Cases'
                 }
+            }
+        }
+        post {
+            always {
+                cleanWs()
             }
         }
     }
