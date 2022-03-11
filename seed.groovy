@@ -26,17 +26,17 @@ folder('CI-Pipelines') {
 
 
 
-def COMPONENT =["cart","user","frontend","catalogue","shipping","payment","dispatch"]
-
-for(comp in COMPONENT) {
-
-    pipelineJob("CI-Pipelines/${comp}") {
+def COMPONENTS =["cart","user","frontend","catalogue","shipping","payment","dispatch"]
+def SIZE = COMPONENTS.size -1
+for(i in 0..SIZE) {
+    def j = COMPONENTS[i]
+    pipelineJob("CI-Pipelines/${j}") {
         configure { flowdefinition ->
             flowdefinition << delegate.'definition'(class: 'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition', plugin: 'workflow-cps') {
                 'scm'(class: 'hudson.plugins.git.GitSCM', plugin: 'git') {
                     'userRemoteConfigs' {
                         'hudson.plugins.git.UserRemoteConfig' {
-                            'url'("https://github.com/vasanthi-dev/${comp}.git")
+                            'url'("https://github.com/vasanthi-dev/${j}.git")
                         }
                     }
                     'branches' {
