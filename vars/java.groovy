@@ -1,7 +1,7 @@
 def call(){
     pipeline {
         agent {
-            label '${BUILD_LABEL}'
+            label "${BUILD_LABEL}"
         }
         triggers {
             pollSCM('*/2 * * * *')
@@ -9,7 +9,7 @@ def call(){
         stages {
             stage('Compile the Code') {
                 steps {
-                    sh 'echo Compile the ${COMPONENT} Code '
+                    sh "echo Compile the ${COMPONENT} Code"
                 }
             }
             stage('Check the Code Quality') {
