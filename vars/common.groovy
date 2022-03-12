@@ -1,4 +1,4 @@
-////import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+//import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
 //import org.jenkinsci.plugins.workflow.libs.Library
 
 
@@ -10,7 +10,7 @@ def sonarQube(){
 }
 
 def publishArtifacts(){
-    if(env.GIT_BRANCH == "*tags*"){
+    if(env.GIT_BRANCH == "*tag*"){
         println "Ran on Tag"
     }
 //    else {
