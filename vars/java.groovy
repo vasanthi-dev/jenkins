@@ -4,7 +4,7 @@ def call(){
             label "${BUILD_LABEL}"
         }
 //        triggers {
-//            pollSCM('*/2 * * * *')
+//            pollSCM('H/2 * * * *')
 //        }
         stages {
             stage('Compile the Code') {

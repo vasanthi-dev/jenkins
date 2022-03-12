@@ -3,9 +3,9 @@ def call(){
         agent {
             label "${BUILD_LABEL}"
         }
-//        triggers {
-//            pollSCM('*/2 * * * *')
-//        }
+        triggers {
+            pollSCM('H/2 * * * *')
+        }
         stages {
             stage('Check the Code Quality') {
                 steps {
@@ -22,6 +22,11 @@ def call(){
             stage('Test Cases') {
                 steps {
                     sh 'echo Test Cases'
+                }
+            }
+            stage('Publish Artifacts') {
+                steps {
+                    sh 'echo Publish Artifacts'
                 }
             }
         }
