@@ -1,4 +1,4 @@
-def call(){
+def call() {
     pipeline {
         agent {
             label "${BUILD_LABEL}"
@@ -26,14 +26,15 @@ def call(){
             }
             stage('Publish Artifacts') {
                 steps {
-                    sh 'echo Publish Artifacts'
-                    sh 'env'
+                    script {
+                        common.publishArtifacts()
+                    }
                 }
             }
-        }
-        post {
-            always {
-                cleanWs()
+            post {
+                always {
+                    cleanWs()
+                }
             }
         }
     }
