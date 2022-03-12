@@ -22,6 +22,7 @@ def call() {
             stage('Test Cases') {
                 steps {
                     sh 'echo Test Cases'
+                    sh 'env'
                 }
             }
             stage('Publish Artifacts') {
