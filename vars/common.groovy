@@ -20,5 +20,9 @@ def publishArtifacts(){
 }
 
 def prepareArtifacts(){
-  println PROG_LANG
+ if( env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "6" ){
+     sh '''
+        echo hello
+        '''
+ }
 }

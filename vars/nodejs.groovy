@@ -7,7 +7,8 @@ def call() {
 //            pollSCM('H/2 * * * *')
 //        }
         environment {
-            PROG_LANG = "nodejs"
+            PROG_LANG_NAME = "nodejs"
+            PROG_LANG_VERSION = "6"
         }
         stages {
             stage('Label Builds') {
