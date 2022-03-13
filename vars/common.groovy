@@ -20,5 +20,5 @@ def publishArtifacts(){
 }
 
 def prepareArtifacts(){
-
+  println PROG_LANG
 }
