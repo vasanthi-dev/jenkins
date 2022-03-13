@@ -6,11 +6,23 @@ def call() {
 //        triggers {
 //            pollSCM('H/2 * * * *')
 //        }
+        environment {
+            PROG_LANG = "nodejs"
+        }
         stages {
+            stage('Label Builds') {
+                steps {
+                    script {
+                        env.gitTag = GIT_BRANCH.split('/').last()
+                        addShortText background: 'white', borderColor: 'white', color: 'red', link: '', text: "${gitTag}"
+                    }
+                }
+            }
             stage('Check the Code Quality') {
                 steps {
                     script {
                         common.sonarQube()
+                        addBadge icon: '', id: '', link: '', text: 'demo'
                     }
                 }
             }
@@ -32,6 +44,7 @@ def call() {
                 steps {
                     script {
                         common.publishArtifacts()
+                        common.prepareArtifacts()
                     }
                 }
             }
