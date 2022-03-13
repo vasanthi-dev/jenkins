@@ -26,7 +26,6 @@ def prepareArtifacts(){
         npm install
         zip -r ${COMPONENT}-${gitTag}.zip node_modules sever.js
         ls -ltr
-        
         '''
  }
 }
