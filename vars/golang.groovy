@@ -8,7 +8,7 @@ def call(){
 //        }
         environment {
             PROG_LANG_NAME = "golang"
-            PROG_LANG_VERSION = "3"
+            PROG_LANG_VERSION = "1.16"
             NEXUS = credentials('NEXUS')
         }
         stages {
