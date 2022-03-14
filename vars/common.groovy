@@ -24,7 +24,7 @@ def publishArtifacts() {
 }
 
 def prepareArtifacts(){
-    env.gitTag = GIT_BRANCH.split('/').last()
+//    env.gitTag = GIT_BRANCH.split('/').last()
  if( env.PROG_LANG_NAME == "nodejs" && env.PROG_LANG_VERSION == "6" ){
      sh '''
         npm install
@@ -32,4 +32,12 @@ def prepareArtifacts(){
         ls -ltr
         '''
  }
+    if( env.PROG_LANG_NAME == "java" && env.PROG_LANG_VERSION == "1.8" ){
+        sh '''
+        mvn clean package
+        mv target/${COMPONENT}-1.0.jar ${COMPONENT}.jar   
+        zip -r ${COMPONENT}-${gitTag}.zip ${COMPONENT}.jar
+        '''
+    }
 }
+
