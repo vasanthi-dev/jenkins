@@ -8,7 +8,7 @@ def call(){
 //        }
         environment {
             PROG_LANG_NAME = "angular"
-            PROG_LANG_VERSION = ""
+            PROG_LANG_VERSION = "1"
             NEXUS = credentials('NEXUS')
         }
         stages {
