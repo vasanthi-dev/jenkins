@@ -7,8 +7,8 @@ def call(){
 //            pollSCM('H/2 * * * *')
 //        }
         environment {
-            PROG_LANG_NAME = "golang"
-            PROG_LANG_VERSION = "1.16"
+            PROG_LANG_NAME = "angular"
+            PROG_LANG_VERSION = ""
             NEXUS = credentials('NEXUS')
         }
         stages {
