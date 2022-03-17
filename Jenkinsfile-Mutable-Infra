@@ -13,7 +13,7 @@ pipeline {
       stages {
         stage('Get Git Repo') {
           steps{
-          dir(code){
+          dir('code'){
             git branch: 'main', url: "https://github.com/vasanthi-dev/${COMPONENT}.git"
           }
          }
