@@ -51,3 +51,29 @@ for(i in 0..SIZE) {
         }
     }
 }
+
+folder('Mutable') {
+    displayName('Mutable')
+    description('Mutable')
+}
+
+pipelineJob('Mutable/terraform-vpc') {
+  configure { flowdefinition ->
+    flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
+      'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
+        'userRemoteConfigs' {
+          'hudson.plugins.git.UserRemoteConfig' {
+            'url'('https://github.com/raghudevopsb61/terraform-vpc.git')
+          }
+        }
+        'branches' {
+          'hudson.plugins.git.BranchSpec' {
+            'name'('*/main')
+          }
+        }
+      }
+      'scriptPath'('Jenkinsfile')
+      'lightweight'(true)
+    }
+  }
+}
