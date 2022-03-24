@@ -69,19 +69,76 @@ pipeline {
             }
           }
         }
-        stage('CATALOGUE') {
-                  steps {
-                    dir('catalogue') {
-                      git branch: 'main', url: "https://github.com/vasanthi-dev/catalogue.git"
-                      sh '''
-                        export TF_VAR_APP_VERSION=1.0.5
-                        cd terraform-immutable
-                        terraform init -backend-config=env/${ENV}-backend.tfvars
-                        terraform apply -auto-approve -var-file=env/${ENV}.tfvars
-                      '''
-                    }
-                  }
-                }
+    stage('CATALOGUE') {
+          steps {
+            dir('catalogue') {
+              git branch: 'main', url: "https://github.com/vasanthi-dev/catalogue.git"
+              sh '''
+                export TF_VAR_APP_VERSION=1.0.0
+                cd terraform-immutable
+                terraform init -backend-config=env/${ENV}-backend.tfvars
+                terraform apply -auto-approve -var-file=env/${ENV}.tfvars
+              '''
+            }
+          }
+        }
+    stage('USER') {
+          steps {
+            dir('user') {
+              git branch: 'main', url: "https://github.com/vasanthi-dev/user.git"
+              sh '''
+                export TF_VAR_APP_VERSION=1.0.0
+                cd terraform-immutable
+                terraform init -backend-config=env/${ENV}-backend.tfvars
+                terraform apply -auto-approve -var-file=env/${ENV}.tfvars
+              '''
+            }
+          }
+        }
+    stage('SHIPPING') {
+          steps {
+            dir('shipping') {
+              git branch: 'main', url: "https://github.com/vasanthi-dev/shipping.git"
+              sh '''
+                export TF_VAR_APP_VERSION=1.0.0
+                cd terraform-immutable
+                terraform init -backend-config=env/${ENV}-backend.tfvars
+                terraform apply -auto-approve -var-file=env/${ENV}.tfvars
+              '''
+            }
+          }
+        }
+
+    stage('PAYMENT') {
+          steps {
+            dir('payment') {
+              git branch: 'main', url: "https://github.com/vasanthi-dev/payment.git"
+              sh '''
+                export TF_VAR_APP_VERSION=1.0.0
+                cd terraform-immutable
+                terraform init -backend-config=env/${ENV}-backend.tfvars
+                terraform apply -auto-approve -var-file=env/${ENV}.tfvars
+              '''
+            }
+          }
+        }
+
+
+    stage('DISPATCH') {
+          steps {
+            dir('dispatch') {
+              git branch: 'main', url: "https://github.com/vasanthi-dev/dispatch.git"
+              sh '''
+                export TF_VAR_APP_VERSION=1.0.0
+                cd terraform-immutable
+                terraform init -backend-config=env/${ENV}-backend.tfvars
+                terraform apply -auto-approve -var-file=env/${ENV}.tfvars
+              '''
+            }
+          }
+        }
+
+
 
       }
     }
