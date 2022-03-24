@@ -158,7 +158,7 @@ pipelineJob('Mutable/All-Infra-Create') {
                     }
                 }
             }
-            'scriptPath'('Jenkinsfile-Mutable-All-In-one-Infra-create')
+            'scriptPath'('Jenkinsfile-Mutable-All-In-One-Infra-create')
             'lightweight'(true)
         }
     }
