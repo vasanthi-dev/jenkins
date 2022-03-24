@@ -163,3 +163,24 @@ pipelineJob('Mutable/All-Infra-Create') {
         }
     }
 }
+
+pipelineJob('Mutable/All-Infra-Destroy') {
+    configure { flowdefinition ->
+        flowdefinition << delegate.'definition'(class:'org.jenkinsci.plugins.workflow.cps.CpsScmFlowDefinition',plugin:'workflow-cps') {
+            'scm'(class:'hudson.plugins.git.GitSCM',plugin:'git') {
+                'userRemoteConfigs' {
+                    'hudson.plugins.git.UserRemoteConfig' {
+                        'url'('https://github.com/vasanthi-dev/jenkins.git')
+                    }
+                }
+                'branches' {
+                    'hudson.plugins.git.BranchSpec' {
+                        'name'('*/main')
+                    }
+                }
+            }
+            'scriptPath'('Jenkinsfile-Mutable-All-In-One-Infra-Destroy')
+            'lightweight'(true)
+        }
+    }
+}
