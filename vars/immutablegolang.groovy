@@ -8,6 +8,9 @@ def call(){
 //        triggers {
 //            pollSCM('H/2 * * * *')
 //        }
+        options {
+            ansiColor('xterm')
+        }
         environment {
             PROG_LANG_NAME = "golang"
             PROG_LANG_VERSION = "1.16"

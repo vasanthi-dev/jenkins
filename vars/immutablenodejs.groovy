@@ -11,6 +11,9 @@ def call() {
             PROG_LANG_VERSION = "6"
             NEXUS = credentials('NEXUS')
         }
+        options {
+            ansiColor('xterm')
+        }
 
         stages {
             stage('Label Builds') {
