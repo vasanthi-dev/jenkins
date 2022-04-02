@@ -12,7 +12,6 @@ def call(){
             NEXUS = credentials('NEXUS')
         }
         stages {
-
             stage('Label Builds') {
                 steps {
                     script {
