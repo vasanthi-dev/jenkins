@@ -1,5 +1,3 @@
-package vars
-
 def call() {
     pipeline {
         agent {
