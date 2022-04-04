@@ -9,6 +9,7 @@ pipeline {
         choice(name: 'ENVIRONMENT', choices: ['', 'dev', 'prod'], description: 'Pick Environment')
         string(name: 'COMPONENT', defaultValue: '', description: 'Which Component?')
         string(name: 'APP_VERSION', defaultValue: '', description: 'App Version?')
+        booleanParam(name: 'INSTANCE_REFRESH', defaultValue: true, description: 'Instance Refresh Needed?')
      }
 
       stages {
