@@ -30,6 +30,18 @@ pipeline {
         }
         }
         }
+ stage('Instance Refresh'){
+      when {
+        expression { return params.INSTANCE_REFRESH }
+      }
+      steps {
+          sh '''
+            bash instance-refresh.sh ${COMPONENT}-${ENVIRONMENT}
+            #aws autoscaling start-instance-refresh --auto-scaling-group-name ${COMPONENT}-${ENVIRONMENT}
+          '''
+      }
+    }
+
       }
       post {
          always {
